@@ -1,0 +1,1 @@
+api: /opt/app/api/env/bin/gunicorn -b 0.0.0.0:5000 flaskapi:app
