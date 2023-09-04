@@ -19,7 +19,7 @@ dbInstance = secret_dict["dbInstance"]
 dbPort = 3306
 
 # Mysq Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = f "mysql+pymysql://{dbUsername}:{dbPassword}@{dbHost}:{dbPort}/{dbName}"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{dbUsername}:{dbPassword}@{dbHost}:{dbPort}/{dbName}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
