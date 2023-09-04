@@ -18,3 +18,4 @@ google-cloud==0.34.0
 google-cloud-secret-manager==2.15.0
 configparser==5.3.0
 gunicorn==21.2.0
+cryptography==41.0.3
