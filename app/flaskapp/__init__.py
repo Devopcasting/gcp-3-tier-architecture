@@ -15,3 +15,4 @@ from flaskapp.update.routes import updateObj
 app.register_blueprint(dashboard.routes.dashboardObj)
 app.register_blueprint(add.routes.addObj)
 app.register_blueprint(update.routes.updateObj)
+
