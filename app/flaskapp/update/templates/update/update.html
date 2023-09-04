@@ -1,0 +1,47 @@
+{% extends 'dashboard/layout.html' %}
+{% block content %}
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{url_for('dashboard.dashboard')}}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Update Employee Details</li>
+        </ol>
+    </nav>
+    <form class="form-floating" action="" method="post">
+        {{form.hidden_tag()}}
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Employee Name</label>
+            <div class="col-sm-10">
+                {{form.emp_name(class="form-control w-50",value=empconn['Name'])}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Email ID</label>
+            <div class="col-sm-10">
+                {{ form.email(class="form-control w-50",value=empconn['Email'],readonly="readonly") }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Department</label>
+            <div class="col-sm-10">
+                <select class="form-select w-50" name="select-department">
+                    {% if empconn['Department'] == "Finance" %}
+                        <option value="Finance" selected>Finance</option>
+                        <option value="IT">IT</option>
+                        <option value="Human Resource">Human Resource</option>
+                    {% elif empconn['Department'] == "IT" %}
+                        <option value="IT" selected>IT</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Human Resource">Human Resource</option>
+                    {% else %}
+                        <option value="Human Resource" selected>Human Resource</option>
+                        <option value="Finance">Finance</option>
+                        <option value="IT">IT</option>
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+        <div class="mb-3">
+            {{form.submit(class="btn btn-success btn-sm")}}
+        </div>
+    </form>
+{% endblock content %}

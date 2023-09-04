@@ -1,0 +1,43 @@
+{% extends 'dashboard/layout.html' %}
+{% block content %}
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+    </nav>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+        <a class="btn btn-primary" href="{{url_for('add.add')}}" role="button">Add New Employee</a>
+    </div>
+    {% if len_emp_db == 0 %}
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+            <i class="bi bi-info-circle me-2"></i>
+            <div>Employees information not found.</div>
+        </div>
+    {% else %}
+    <table class="table tamble-sm table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Department</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in employee %}
+                <tr>
+                    <td>{{i.employeeid}}</td>
+                    <td>{{i.Name}}</td>
+                    <td>{{i.Email}}</td>
+                    <td>{{i.Department}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="{{url_for('dashboard.delete',empid=i.employeeid)}}" role="button">Delete</a>
+                        <a class="btn btn-sm btn-secondary" href="{{url_for('update.update',empid=i.employeeid)}}" role="button">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}
