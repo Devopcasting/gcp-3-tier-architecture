@@ -6,7 +6,7 @@ app.config['SECRET_KEY'] = '878436c0a462c4145fa59eec2c43a66a'
 
 # API Config
 headers = {'Content-Type': 'application/json'}
-apiurl = 'http://10.0.0.32:80'
+apiurl = 'http://10.0.2.38'
 
 from flaskapp.dashboard.routes import dashboardObj
 from flaskapp.add.routes import addObj
