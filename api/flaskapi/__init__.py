@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # GCP Secret Manager
 client = secretmanager.SecretManagerServiceClient()
-requests = "projects/104663039364/secrets/flaskcrudsecret/versions/1"
+requests = "projects/104663039364/secrets/flaskcrudsecret/versions/latest"
 response = client.access_secret_version({"name":requests})
 secret_dict = json.loads(response.payload.data.decode("utf-8"))
 
